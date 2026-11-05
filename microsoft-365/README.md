@@ -14,23 +14,31 @@ discovers the tools when it runs, so new server tools reach users without a new 
 
 ## Sign-in
 
-Copilot signs in with the pre-registered public client `m365-copilot` (PKCE, no secret) and the redirect
-URI `https://teams.microsoft.com/api/platform/v1.0/oAuthRedirect`. The client is registered once, in the
-Teams Developer Portal under **Tools → OAuth client registration**:
+Copilot signs in with the pre-registered client `m365-copilot` and the redirect URI
+`https://teams.microsoft.com/api/platform/v1.0/oAuthRedirect`. The Developer Portal requires a client
+secret, so this client has one, sent in the token request body, and uses PKCE as well. The client is
+registered once, in the Teams Developer Portal under **Tools → OAuth client registration**:
 
 | Field | Value |
 |---|---|
 | Base URL | `https://api.elfsquad.io/mcp` |
 | Restrict usage by org | Any Microsoft 365 organization |
-| Restrict usage by app | Any Teams app |
+| Restrict usage by Teams app | Any Teams app, while testing and through store validation (see below) |
 | Client ID | `m365-copilot` |
-| Client secret | empty |
+| Client secret | The secret Elfsquad generated for `m365-copilot` (kept by Elfsquad, not in this repository) |
+| Client password authentication method | Request body parameters |
 | Authorization endpoint | `https://login.elfsquad.io/oauth2/auth` |
 | Token and refresh endpoint | `https://login.elfsquad.io/oauth2/token` |
 | Scope | `openid offline_access Elfskot.Api` |
 | PKCE | on |
 
 The registration ID it returns goes into the package at build time. It is not a secret.
+
+A package uploaded to a tenant as a custom app gets an app ID from that tenant, not the `id` in
+`manifest.json`. A registration restricted to the manifest ID then fails before sign-in: Copilot reports a
+token-store or authentication error and never reaches Elfsquad's login. Keep "Any Teams app" while
+testing uploaded packages. The Developer Portal labels that option for testing and store validation only,
+so once the store listing is live, restrict the registration to the app ID the store gives it.
 
 ## Build
 
