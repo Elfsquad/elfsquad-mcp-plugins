@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "elfsquad": {
+      "type": "http",
+      "url": "https://api.elfsquad.io/mcp",
+      "oauth": {
+        "clientId": "claude-mcp",
+        "callbackPort": 51000
+      }
+    }
+  }
+}

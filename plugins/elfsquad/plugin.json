@@ -1,0 +1,51 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "elfsquad",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Skills for the Elfsquad CPQ MCP server: select an environment, query data, build and edit feature models and their rules, run the configurator, and create quotations, all through the server's own tools.",
+  "author": {
+    "name": "Elfsquad",
+    "email": "support@elfsquad.io",
+    "url": "https://www.elfsquad.io"
+  },
+  "homepage": "https://www.elfsquad.io",
+  "repository": "https://github.com/Elfsquad/elfsquad-mcp-plugins",
+  "keywords": [
+    "elfsquad",
+    "cpq",
+    "configurator",
+    "feature-model",
+    "quotation",
+    "pricing",
+    "mcp"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Elfsquad",
+        "shortDescription": "Configure, price and quote in Elfsquad",
+        "longDescription": "Connects ChatGPT to Elfsquad, the configure-price-quote (CPQ) platform, through the Elfsquad MCP server at https://api.elfsquad.io/mcp. You sign in with your Elfsquad account and choose one environment; the assistant then works in that environment with your own permissions. Six skills teach it to use the server's tools: choosing the environment and reading the documentation, querying data, building and editing feature models (features, nodes, relationships, feature properties, dynamic groups, linked models, validation and 3D), writing rules and expressions, running the configurator (start a configuration, select options, read conflicts and prices), and creating quotations with their CRM accounts and statuses. Tools that change data need Write access for MCP on your account, and the skills ask before anything that deletes.",
+        "developerName": "Elfsquad",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://www.elfsquad.io",
+        "defaultPrompt": [
+          "Which Elfsquad environments can I use? Select one.",
+          "Build a feature model from this product spec.",
+          "Configure this product and turn it into a quotation."
+        ],
+        "brandColor": "#0F766E",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png",
+        "privacyPolicyURL": "https://www.elfsquad.io/privacystatement",
+        "termsOfServiceURL": "https://www.elfsquad.io/hubfs/1.%20Legal%20and%20Agreements/terms-and-conditions-0720251.pdf",
+        "supportURL": "https://www.elfsquad.io/contact-us"
+      },
+      "onboardingSkill": "./skills/elfsquad-getting-started/SKILL.md"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "elfsquad-mcp-plugins",
+  "interface": {
+    "displayName": "Elfsquad"
+  },
+  "plugins": [
+    {
+      "name": "elfsquad",
+      "source": {
+        "source": "local",
+        "path": "./plugins/elfsquad"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity",
+      "description": "Skills for the Elfsquad CPQ MCP server: select an environment, query data, build and edit feature models and their rules, run the configurator, and create quotations, all through the server's own tools."
+    }
+  ],
+  "metadata": {
+    "description": "Skills for the Elfsquad CPQ MCP server: select an environment, query data, build and edit feature models and their rules, run the configurator, and create quotations, all through the server's own tools.",
+    "version": "0.1.0"
+  }
+}
