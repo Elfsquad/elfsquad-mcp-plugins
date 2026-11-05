@@ -122,6 +122,11 @@ plugins/elfsquad/
   skills/<skill>/references/*.md
 ```
 
+## Privacy
+
+The plugin connects to the Elfsquad MCP server, which acts on your Elfsquad data with your own
+permissions. See Elfsquad's [privacy statement](https://www.elfsquad.io/privacystatement).
+
 ## More
 
 - Elfsquad: https://www.elfsquad.io

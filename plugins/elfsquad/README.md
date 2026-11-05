@@ -18,3 +18,9 @@ anything that deletes.
 Installation for each assistant is described in the
 [repository README](https://github.com/Elfsquad/elfsquad-mcp-plugins#readme). For help, contact
 [Elfsquad](https://www.elfsquad.io/contact-us).
+
+## Privacy
+
+The plugin sends your requests to the Elfsquad MCP server at `https://api.elfsquad.io/mcp`, which acts on
+your Elfsquad data with your own permissions. Elfsquad's
+[privacy statement](https://www.elfsquad.io/privacystatement) describes how that data is handled.
