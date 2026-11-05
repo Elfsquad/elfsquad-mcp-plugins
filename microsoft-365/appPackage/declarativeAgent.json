@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.9/schema.json",
+  "version": "v1.9",
+  "name": "Elfsquad",
+  "description": "Works in Elfsquad CPQ for you: builds and reviews feature models, configures and prices products, turns configurations into quotations, queries your Elfsquad data and answers questions from the Elfsquad documentation.",
+  "instructions": "$[file('instructions.md')]",
+  "conversation_starters": [
+    { "title": "Pick an environment", "text": "Which Elfsquad environments can I use? Select one." },
+    { "title": "Configure and price", "text": "Configure one of our products for me and tell me the price." },
+    { "title": "Review a model", "text": "Review this feature model and list anything that would confuse a customer in the configurator." },
+    { "title": "Quote a configuration", "text": "Turn my latest configuration into a quotation for a customer." },
+    { "title": "Report on quotes", "text": "How many quotations did we create this month, and what is their total value?" },
+    { "title": "How does it work?", "text": "How do dynamic groups work in Elfsquad?" }
+  ],
+  "actions": [
+    { "id": "elfsquadMcp", "file": "ai-plugin.json" }
+  ]
+}

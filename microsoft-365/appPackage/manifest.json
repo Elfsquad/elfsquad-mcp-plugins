@@ -1,0 +1,33 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.30/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.30",
+  "version": "1.0.0",
+  "id": "f3022978-d4c2-4f3f-9cc2-70fbbdaa5df9",
+  "developer": {
+    "name": "Elfsquad",
+    "websiteUrl": "https://www.elfsquad.io",
+    "privacyUrl": "https://www.elfsquad.io/privacystatement",
+    "termsOfUseUrl": "https://www.elfsquad.io/hubfs/1.%20Legal%20and%20Agreements/terms-and-conditions-0720251.pdf"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Elfsquad",
+    "full": "Elfsquad CPQ"
+  },
+  "description": {
+    "short": "Configure, price and quote products in Elfsquad CPQ from Copilot.",
+    "full": "Elfsquad is a configure-price-quote (CPQ) platform for manufacturers of configurable products. This agent connects Microsoft 365 Copilot to Elfsquad through the Elfsquad MCP server. You sign in with your Elfsquad account and choose one environment; the agent then works in that environment with your own roles and permissions.\n\nWith it you can build and review feature models (features, structure, rules and expressions), configure a product and read its price, options and conflicts, turn configurations into quotations, look up and update quotations and CRM accounts, query your Elfsquad data, and search the Elfsquad documentation.\n\nEach user has Read or Write access for the connector per environment. Read is the default; changes to data need Write access, which an administrator of the environment grants. The agent asks before anything that deletes.\n\nRequires an Elfsquad account."
+  },
+  "accentColor": "#00221F",
+  "copilotAgents": {
+    "declarativeAgents": [
+      {
+        "id": "elfsquadAgent",
+        "file": "declarativeAgent.json"
+      }
+    ]
+  }
+}

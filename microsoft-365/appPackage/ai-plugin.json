@@ -1,0 +1,24 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "name_for_human": "Elfsquad",
+  "namespace": "elfsquad",
+  "description_for_human": "Configure, price and quote in Elfsquad CPQ",
+  "description_for_model": "Elfsquad CPQ: feature models, configurations, quotations, CRM accounts and the Elfsquad documentation. Start every session with ListTenants, then SelectTenant, and pass the returned tenantHandle on every other call.",
+  "privacy_policy_url": "https://www.elfsquad.io/privacystatement",
+  "legal_info_url": "https://www.elfsquad.io/hubfs/1.%20Legal%20and%20Agreements/terms-and-conditions-0720251.pdf",
+  "functions": [],
+  "runtimes": [
+    {
+      "type": "RemoteMCPServer",
+      "auth": {
+        "type": "OAuthPluginVault",
+        "reference_id": "${{ELFSQUAD_OAUTH_REGISTRATION_ID}}"
+      },
+      "run_for_functions": ["*"],
+      "spec": {
+        "url": "https://api.elfsquad.io/mcp"
+      }
+    }
+  ]
+}

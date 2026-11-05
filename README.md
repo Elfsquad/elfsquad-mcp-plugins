@@ -9,7 +9,8 @@ https://api.elfsquad.io/mcp
 
 The server supplies the tools. This plugin supplies the know-how: which tool to call for a job, in what
 order, with which arguments, and what to check afterwards. It ships one plugin, `elfsquad`, in two formats:
-a Claude Code plugin and an OpenAI (ChatGPT and Codex) plugin.
+a Claude Code plugin and an OpenAI (ChatGPT and Codex) plugin. `microsoft-365/` holds the same know-how as a
+Microsoft 365 Copilot agent.
 
 ## Skills
 
@@ -43,7 +44,7 @@ An administrator of the environment grants Write access.
 
 Elfsquad does not offer dynamic client registration. Assistants sign in with an OAuth client that Elfsquad
 registered for them in advance: `claude` for the Claude apps' connector, `claude-mcp` for Claude Code, and
-`openai` for ChatGPT. The plugin files already name the right client, so there is nothing to enter.
+`openai` for ChatGPT, and `m365-copilot` for Microsoft 365 Copilot. The plugin files already name the right client, so there is nothing to enter.
 
 ## Install in Claude
 
@@ -105,6 +106,11 @@ The plugin is in `plugins/elfsquad/`, in the portable format described in the
 To use it in a ChatGPT workspace, zip the `plugins/elfsquad/` folder and upload it as a workspace plugin, or
 point Codex at this repository's marketplace file, `.agents/plugins/marketplace.json`.
 
+## Install in Microsoft 365 Copilot
+
+`microsoft-365/` is a declarative agent with the MCP server as its action. Its README describes the OAuth
+registration and how to build and upload the app package. Until it is listed in the Microsoft 365 Agent
+Store, an administrator can upload the package to their own tenant.
 
 ## Repository layout
 
@@ -120,6 +126,9 @@ plugins/elfsquad/
   assets/icon.png
   skills/<skill>/SKILL.md
   skills/<skill>/references/*.md
+microsoft-365/
+  appPackage/                       Microsoft 365 app: manifest, declarative agent, plugin, instructions, icons
+  build.py                          Builds the upload ZIP
 ```
 
 ## Privacy
