@@ -7,7 +7,8 @@ discovers the tools when it runs, so new server tools reach users without a new 
 |---|---|
 | `appPackage/manifest.json` | Microsoft 365 app manifest: name, descriptions, icons, publisher URLs |
 | `appPackage/declarativeAgent.json` | The agent: description, conversation starters, the MCP action |
-| `appPackage/instructions.md` | The agent's instructions, a condensed form of the plugin skills (8,000 characters at most) |
+| `appPackage/instructions.md` | The agent's instructions: the rules that always apply and which skill covers which task (8,000 characters at most) |
+| `../plugins/elfsquad/skills/` | The agent's skills. The build copies them into the package; they are not duplicated here |
 | `appPackage/ai-plugin.json` | Plugin manifest v2.4 with the `RemoteMCPServer` runtime and OAuth |
 | `appPackage/color.png`, `outline.png` | 192×192 colour icon and 32×32 white outline icon |
 | `build.py` | Builds the upload ZIP |
@@ -40,14 +41,24 @@ token-store or authentication error and never reaches Elfsquad's login. Keep "An
 testing uploaded packages. The Developer Portal labels that option for testing and store validation only,
 so once the store listing is live, restrict the registration to the app ID the store gives it.
 
+## Skills
+
+The agent carries the same skills as the Claude and OpenAI plugins, as agent skills (declarative agent
+manifest v1.9, `agent_skills`). Copilot loads a skill only when a task needs it, so the skills can go into far
+more detail than the 8,000-character instructions. `build.py` copies every folder in
+`plugins/elfsquad/skills/` to `skills/<name>/` in the package and lists it in `agent_skills`, so a skill added
+to the plugin reaches Copilot with the next package. Microsoft's limits, which the build checks: eight skills
+per agent, a `SKILL.md` with `name` and `description` front matter and under 20,000 characters of instructions,
+350 files, three directory levels, and 10 MB for the whole package.
+
 ## Build
 
 ```
 ELFSQUAD_OAUTH_REGISTRATION_ID=<registration id> microsoft-365/build.py
 ```
 
-The script inlines `instructions.md`, fills in the registration ID, checks Microsoft's length and icon
-limits, and writes `microsoft-365/build/elfsquad-m365-<version>.zip`. Raise `version` in `manifest.json` for
+The script inlines `instructions.md`, fills in the registration ID, adds the skills, checks Microsoft's
+length, icon and skill limits, and writes `microsoft-365/build/elfsquad-m365-<version>.zip`. Raise `version` in `manifest.json` for
 every package you submit.
 
 ## Try it in a tenant
