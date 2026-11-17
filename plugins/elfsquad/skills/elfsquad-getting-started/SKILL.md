@@ -22,9 +22,9 @@ Rules for the handle:
 - `GetTenantInfo` with the handle tells you which tenant it is bound to and when it expires. Say the tenant's
   name to the user right after selecting, and again before the first change you make.
 - If two tenants have similar names (a test and a production copy, say), ask the user which one. Never guess.
-- When you signed in through a connector (Claude or ChatGPT), the sign-in screen asked you to pick one
-  environment. `ListTenants` then lists only that environment, and no other can be selected. To work in a
-  different environment, reconnect and choose it on the consent screen.
+- When you signed in through a connector (Claude, ChatGPT or Microsoft 365 Copilot), the sign-in screen
+  asked you to pick one environment. `ListTenants` then lists only that environment, and no other can be
+  selected. To work in a different environment, reconnect and choose it on the consent screen.
 
 ## What you may do: permissions and access level
 
